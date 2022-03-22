@@ -1,0 +1,39 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Login test page</h1>
+
+    <form method="post" asp-page="Index">
+        <div class="form-group">
+            <label asp-for="UserID"></label>
+            <input asp-for="UserID" class="form-control" placeholder="UserID" autocomplete="off" />
+
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control" placeholder="Password" autocomplete="off" type="password" />
+
+            <div class="form-group">
+                <label> Temp Password: </label>
+                <label>@Model.TempPassword</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" name="answer" value="Generate">Generate Password</button>
+        <button type="submit" class="btn btn-primary" name="answer" value="Login">Login</button>
+
+        <div class="form-group">
+            <p>
+                <label>Current Time: @Model.CurrentTime</label>
+            </p>
+            <p>
+                <label>Expiration Time: @Model.ExpirationTime</label>
+                <input type="hidden" asp-for="ExpirationTime" />
+            </p>
+            <p>
+                <h4>Result: @Model.LoginResult</h4>
+            </p>
+        </div>
+</form>
+</div>
